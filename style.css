@@ -1,0 +1,481 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(184, 13, 13, 0.2)), url(./Images/back.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 200vh;
+    color: white;
+}
+
+/* Navbar Style Start */
+nav {
+    height: 80px;
+    background: transparent;
+    color: white;
+    display: flex;
+    align-items: center; 
+    justify-content: space-between; 
+    padding: 0 20px; 
+}
+
+nav h1 {
+    width: 150px;
+}
+
+nav ul {
+    display: flex; 
+    list-style: none; 
+}
+
+nav ul li {
+    line-height: 80px;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 5px 0;
+    position: relative;
+}
+
+nav ul li a::before {
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background: white;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .4s linear;
+}
+
+nav ul li a:hover:before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.menu-toggle {
+    display: none; 
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 25px;
+    background: white;
+    margin: 4px;
+    transition: all 0.3s ease;
+}
+/* Navbar Style Ends */
+
+/* Home Continer Style Start */
+.container {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    margin-top: 65px;
+}
+
+.container h1 {
+    font-size: 50px;
+    margin-top: 19px;
+    line-height: 59px;
+}
+
+h1, h2 {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 40px;
+   
+}
+
+/* button style start */
+.button-container {
+    display: flex; 
+    justify-content: center; 
+    margin-top: 35px; 
+}
+
+.btn {
+    background: url(./Images/back.jpg); 
+    color: white; 
+    border: 2px solid transparent; 
+    padding: 10px 40px; 
+    margin: 0 10px; 
+    cursor: pointer; 
+    font-size: 16px;
+    letter-spacing: 2px;
+    border-radius: 5px; 
+    position: relative; 
+    
+}
+
+.btn::before {
+    content: ''; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    background: linear-gradient(45deg, rgb(110, 84, 6), rgb(140, 48, 18)); /* Gradient colors */
+    z-index: -1; 
+    border-radius: 5px; 
+    padding: 4px; 
+    margin: -4px;
+  
+}
+/* bitton style end */
+
+/* icon style */
+.icon-container {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    margin-top: 35px; 
+}
+
+.icon-container i {
+    font-size: 43px; 
+    color: white; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    animation: bounce 1s infinite; 
+}
+
+/* Keyframes for bouncing effect */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0); 
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); 
+    }
+    50% {
+        transform: translateY(-10px); 
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); 
+    }
+}
+/* Home Continer Style End*/
+
+
+/* Skills Style Start */
+.skills {
+    overflow: hidden; 
+    position: relative;
+    margin-top: 45px;
+}
+
+.skills-container {
+    display: flex; 
+    animation: scroll 20s linear infinite; 
+}
+
+.card{
+    position: relative;
+    background: url(./Images/back.jpg);
+    width: 300%;
+    margin: 2rem;
+    border-radius: 1em;
+    color: white;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 4rem; 
+    isolation: isolate;
+    overflow: hidden;
+    text-align: center; 
+}
+
+.card::after, 
+.card::before{
+    content: "";
+    position: absolute;
+}
+
+.card::before{
+    width: 200%;
+    height: 200%;
+    background-image: conic-gradient(
+        rgb(140, 48, 18) 0deg, 
+    transparent 60deg, 
+    transparent 180deg, 
+    rgb(110, 84, 6) 180deg,
+    transparent 240deg);
+    inset: -50%;
+    z-index: -2;
+    animation: border 8s linear infinite;
+}
+
+@keyframes border{
+to{
+    transform: rotate(-360deg);
+}
+}
+
+.card::after{
+    background-color: #111;
+    inset: 0.25rem;
+    border-radius: calc(1em - 0.25rem);
+    z-index: -1;
+}
+
+.card i {
+    font-size: 50px;
+    margin-bottom: 15px; 
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%); 
+    }
+}
+
+
+.skills-container:after {
+    content: '';
+    display: inline-block;
+    width: 100%; 
+}
+/* Skills Style Start */
+
+
+/* Project Style Start */
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px; 
+}
+
+.projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    max-width: 1200px; 
+}
+
+.project-card{
+    /* width: 26%;   */
+    width: calc(35% - 20px);
+    border: 2px solid gray;
+    border-radius: 20px;
+    height: 70vh;
+    background: url(./Images/back.jpg);
+    margin: 10px; 
+    margin-top: 45px;
+    display: flex;
+    flex-direction: column; 
+    overflow: hidden; 
+}
+
+.card-img{
+    width: 100%;
+ border:8px solid black;
+    border-radius: 20px;
+    height: 180px;
+}
+
+.card-content{
+    margin-top: 20px;
+    margin-left:8px ;
+    max-width: 90%;
+}
+
+.card-description{
+    margin-top: 8px;
+    color: gray;
+    line-height: 20px;
+}
+
+.icons{
+margin-left: 20px;
+margin-top: 34px;
+}
+
+.icons i{
+    font-size:20px;
+    color: rgb(174, 174, 174);
+}
+
+.icon2{
+    margin-left: 75%;
+}
+/* Project Style End */
+
+/* Contact Style Start */
+/* Contact Style Start */
+.contact {
+    padding: 40px;
+}
+
+.contact-container {
+    display: flex; 
+    justify-content: space-between; 
+    flex-wrap: wrap;
+}
+
+.contact-left {
+    background: linear-gradient(to bottom, #3a99d9, #7fb8f6, #b5d2f0);
+    width: 40%; 
+    height: 80vh;
+    margin-top: 30px;
+    border: 2px solid black;
+    border-radius: 30px;
+    margin-right: 10px; 
+    padding: 40px; 
+}
+
+.contact-left h3 {
+    margin-top: 40px;
+    font-size: 26px;
+}
+
+.contact-left h4 {
+    margin-top: 26px;
+    font-size: 18px;
+}
+
+.contact-left p {
+    margin-top: 5px;
+    width: 100%; 
+    font-size: 18px;
+}
+
+.icon {
+    margin-top: 7px;
+}
+
+.icon i {
+    margin-left: 3px;
+    font-size: 20px;
+}
+
+/* Form Style */
+.contact-right {
+    max-width: 55%; 
+    width: 60%; 
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    border-radius: 30px; 
+}
+
+.form-group {
+    margin-bottom: 20px; 
+}
+
+label {
+    display: block; 
+    margin-bottom: 5px;
+    font-weight: bold; 
+}
+
+input, textarea {
+    width: 100%; 
+    padding: 10px;
+    border: 2px solid gray;
+    background: url(./Images/back.jpg);
+    border-radius: 15px; 
+    color: rgb(231, 229, 229);
+    font-size: 16px; 
+    transition: border-color 0.3s; 
+}
+
+input:focus, textarea:focus {
+    border-color: rgb(199, 198, 198); 
+    outline: none; 
+}
+
+textarea {
+    height: 100px;
+    resize: none; 
+}
+
+.submit-btn {
+    background: url(./Images/back.jpg);
+    color: rgb(169, 168, 168); 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 15px; 
+    font-size: 16px; 
+    width: 100%;
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+}
+
+.submit-btn:hover {
+    color: white; 
+}
+
+/* Contact Style End */
+
+/* Responsive Style */
+@media screen and (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column; 
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.8); 
+    }
+
+    nav ul.active {
+        display: flex; 
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .button-container {
+        flex-direction: column; 
+    }
+
+    .btn {
+        margin: 10px 0; 
+    }
+
+    .card {
+        width: 120px;
+        margin: 0.5rem; 
+    }
+
+    .skills-container {
+        animation: scroll 5s linear infinite; 
+    }
+
+    .project-card {
+        width: calc(100% - 20px); 
+        height: 79vh;
+
+    }
+
+    .contact-left, .contact-right {
+        width: 100%; 
+        margin-right: 0; 
+        margin-bottom: 20px; 
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .project-card {
+        width: calc(40% - 20px); /* Two cards per row on medium screens */
+    }
+}
+
+
+
